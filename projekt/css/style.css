@@ -1,0 +1,60 @@
+.custom-header {
+    background-image: url('../images/head_background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.test-body {
+    background-image: url('../images/body.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    margin: 10px 0;
+    position: fixed;
+    left: 2%;
+    width: 40%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.mini-box {
+    background-color: rgba(15, 20, 166, 0.8);
+    color: white;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.main-box {
+    margin-left: 270px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .main-box {
+        margin-left: 0;
+        width: 100%;
+    }
+}
