@@ -1,3 +1,11 @@
+
+.main-body {
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
 .custom-header {
     background-image: url('../images/head_background.jpg');
     background-size: cover;
@@ -5,7 +13,7 @@
     color: white;
 }
 
-.test-body {
+.news-body {
     background-image: url('../images/body.jpg');
     background-size: cover;
     background-position: center;
@@ -13,48 +21,78 @@
     background-attachment: scroll;
     margin: 0;
     padding: 0;
+    min-height: 150vh;
 }
 
-.container {
-    display: flex;
-    min-height: 100vh;
+.container-fluid, .row {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-.sidebar {
-    margin: 10px 0;
-    position: fixed;
-    left: 2%;
-    width: 40%;
+.left-bar {
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.2);
+    text-align: center;
 }
 
 .mini-box {
-    background-color: rgba(15, 20, 166, 0.8);
-    color: white;
+    background-color: rgba(227, 227, 227, 0.75);
     padding: 20px;
     margin: 10px 0;
     border-radius: 10px;
     text-align: center;
 }
 
+.mini-box h1 {
+    font-family: 'Arial', sans-serif;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+    font-size: 25px;
+    font-weight: bold;
+    text-align: left;
+    color: rgb(12, 43, 49);
+    border-left: 5px solid #007bff;
+    margin-bottom: 10px;
+}
+
+.mini-box p {
+    text-align: justify;
+    color: black;
+}
+
 .main-box {
-    margin-left: 270px;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 5px;
-    flex: 1;
+    text-align: center;
+}
+
+.test {
+    padding: 20px;
+    background-color: rgba(227, 227, 227, 0.2) ;
+}
+
+.test h1 {
+    font-family: 'Arial', sans-serif;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+    font-size: 40px;
+    font-weight: bold;
+    text-align: left;
+    color: rgb(12, 43, 49);
+    border-left: 5px solid #007bff;
+    margin-bottom: 10px;
+}
+.photos {
+    background-color: rgba(227, 227, 227, 0.75);
+    padding: 20px;
+}
+
+.photos-description {
+    padding-top: 50px;
+    text-align: justify;
+    font-size: 20px;
 }
 
 @media (max-width: 768px) {
-    .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-    }
-
-    .main-box {
-        margin-left: 0;
-        width: 100%;
+    .row {
+        display: flex;
+        flex-direction: column-reverse;
     }
 }
