@@ -54,9 +54,14 @@
     margin-bottom: 10px;
 }
 
-.mini-box p {
+.mini-box-content {
     text-align: justify;
     color: black;
+}
+
+.description {
+    text-align: right;
+    font-weight: bold;
 }
 
 .main-box {
@@ -64,32 +69,42 @@
     text-align: center;
 }
 
-.test {
+.text-background {
     padding: 20px;
     background-color: rgba(227, 227, 227, 0.2) ;
 }
 
-.test h1 {
+.text-background h1 {
     font-family: 'Arial', sans-serif;
-    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
     font-size: 40px;
     font-weight: bold;
     text-align: left;
     color: rgb(12, 43, 49);
-    border-left: 5px solid #007bff;
+    border-left: 5px solid yellow;
     margin-bottom: 10px;
+    color: white;
 }
+
 .photos {
-    background-color: rgba(227, 227, 227, 0.75);
     padding: 20px;
+    border-bottom: 5px solid black;
 }
 
 .photos-description {
     padding-top: 50px;
     text-align: justify;
     font-size: 20px;
+    color: white;
 }
 
+.video-size {
+    padding: 20px;
+}
+
+.input-title {
+    color: white;
+    font-size: 20px;
+}
 @media (max-width: 768px) {
     .row {
         display: flex;
