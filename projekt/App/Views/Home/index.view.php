@@ -1,50 +1,17 @@
-<!DOCTYPE html>
-<html lang="sk">
-<head>
-    <meta charset="UTF-8">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Main</title>
-</head>
-<body class="main-body">
-<header class="bg-dark text-white text-center py-5 custom-header">
-    <h1>Vesmirne fórum</h1>
-    <p>Objavte zázraky vesmíru</p>
-</header>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">
-            <img src="icons/rocket.png" alt="Icon" style="height: 40px;">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="sites/news.html">Príspevky</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="sites/logIn.html">Príhlasiť sa</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="sites/register.html">Registrovať sa</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="sites/createPost.html">Vytvor príspevok</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<?php
+
+/** @var Array $data */
+/** @var \App\Models\Post $post */
+/** @var App\Core\IAuthenticator $auth */
+/** @var \App\Core\LinkGenerator $link */
+?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-8 text-background">
             <div class="row">
                 <div class="col-md-6 photos order-2 order-md-1">
                     <h1>Andromeda galaxia</h1>
-                    <img src="images/andromeda.jpg" class="img-fluid" alt="andromeda galaxy">
+                    <img src="public/images/andromeda.jpg" class="img-fluid" alt="andromeda galaxy">
                 </div>
                 <div class="col-md-6 photos order-1 order-md-2">
                     <p class="photos-description">
@@ -55,7 +22,7 @@
             <div class="row">
                 <div class="col-md-6 photos order-2 order-md-1">
                     <h1>Stĺpy stvorenia</h1>
-                    <img src="images/pillar-of-creation.jpg" class="img-fluid" alt="andromeda galaxy">
+                    <img src="public/images/pillar-of-creation.jpg" class="img-fluid" alt="andromeda galaxy">
                 </div>
                 <div class="col-md-6 photos order-1 order-md-2">
                     <p class="photos-description">
@@ -74,5 +41,3 @@
         </div>
     </div>
 </div>
-</body>
-</html>

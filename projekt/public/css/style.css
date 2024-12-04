@@ -1,6 +1,6 @@
 
 .main-body {
-    background-image: url("../images/background.jpg");
+    background-image: url('../images/background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -111,3 +111,23 @@
         flex-direction: column-reverse;
     }
 }
+
+.article-image {
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
+    max-width: 50%;
+    height: auto;
+    max-height: 300px;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px 0;
+    font-family: Arial, sans-serif;
+}
+

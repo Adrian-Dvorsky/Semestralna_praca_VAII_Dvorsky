@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f75be4e0-88b6-4927-b901-3aeb6d3d1c30" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Semestralna_praca_VAII_Dvorsky.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/icons/rocket.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/images/andromeda.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/images/background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/images/body.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/images/head_background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/images/milky-way.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/images/pillar-of-creation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/images/the-orion-nebula.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/sites/createPost.html" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/sites/createPost.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/sites/logIn.html" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/sites/logIn.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/sites/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/sites/news.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/sites/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/sites/register.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2plAjMS5mwyOpnVu1PXGroCduHK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Docker.docker: Compose Deployment.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml" />
+      <method v="2" />
+    </configuration>
+    <configuration name="docker: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="projekt/docker/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.docker: Compose Deployment" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PS-242.21829.154" />
+        <option value="bundled-php-predefined-a98d8de5180a-4d9f4c849d09-com.jetbrains.php.sharedIndexes-PS-242.21829.154" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f75be4e0-88b6-4927-b901-3aeb6d3d1c30" name="Changes" comment="" />
+      <created>1733330422997</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1733330422997</updated>
+      <workItem from="1733330424186" duration="139000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
