@@ -30,32 +30,40 @@
     </div>
 </form>
 
+
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        function validateForm() {
-            let title = document.getElementById('titleInput').value;
-            let content = document.getElementById('inputContent').value;
-            let image = document.getElementById('formFile').files[0];
+    function validateForm() {
+        let title = document.getElementById('titleInput').value;
+        let content = document.getElementById('inputContent').value;
+        let image = document.getElementById('formFile').files[0];
+        let link = document.getElementById('inputLinks').value;
+        let urlRegex = /^(https?:\/\/)?([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})(:[0-9]+)?(\/[^\s]*)?$/;
 
-            if (title.trim() === "") {
-                alert('Nadpis je povinný.');
-                return false;
-            }
-
-            if (content.trim() === "") {
-                alert('Obsah je povinný.');
-                return false;
-            }
-
-            if (image) {
-                let allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-                if (!allowedTypes.includes(image.type)) {
-                    alert('Obrázok musí byť vo formáte JPG, PNG alebo GIF.');
-                    return false;
-                }
-            }
-
-            return true;
+        if (title.trim() === "") {
+            alert('Nadpis je povinný.');
+            return false;
         }
-    });
+
+        if (content.trim() === "") {
+            alert('Obsah je povinný.');
+            return false;
+        }
+
+        if (image) {
+            let allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
+            if (!allowedTypes.includes(image.type)) {
+                alert('Obrázok musí byť vo formáte JPG, PNG alebo GIF.');
+                return false;
+            }
+        }
+
+        if (link.trim() !== "") {
+            if (!urlRegex.test(link)) {
+                alert('Odkaz nie je v správnom formáte.');
+                return false;
+            }
+        }
+
+        return true;
+    }
 </script>

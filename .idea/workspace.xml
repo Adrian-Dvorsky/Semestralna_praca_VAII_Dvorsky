@@ -7,6 +7,9 @@
     <list default="true" id="f75be4e0-88b6-4927-b901-3aeb6d3d1c30" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Controllers/ArticleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Article/add.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Article/add.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Article/edit.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Article/edit.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/public/uploads/28013916701637-football-and-mathematics.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +94,7 @@
       <workItem from="1733331750123" duration="267000" />
       <workItem from="1733332066636" duration="44000" />
       <workItem from="1733332327397" duration="440000" />
+      <workItem from="1733332903793" duration="1387000" />
     </task>
     <servers />
   </component>

@@ -46,7 +46,7 @@ class ArticleController extends AControllerBase
                 $image = $this->request()->getFiles()['image']['name'];
                 $errors = [];
                 if (empty($title) || empty($content)) {
-                    $errors[] = 'Polia nadpís musia byť vyplnené';
+                    $errors[] = 'Polia nadpís a obsah musia byť vyplnené';
                 }
                 if ($image != "") {
                     $imageFile = $_FILES['image'];
@@ -74,7 +74,7 @@ class ArticleController extends AControllerBase
             $image = $this->request()->getFiles()['image']['name'];
             $errors = [];
             if (empty($title) || empty($content)) {
-                $errors[] = 'Polia nadpís musia byť vyplnené';
+                $errors[] = 'Polia nadpís a obsah musia byť vyplnené';
             }
             if ($image != "") {
                 $imageFile = $_FILES['image'];
