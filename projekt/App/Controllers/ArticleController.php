@@ -58,7 +58,7 @@ class ArticleController extends AControllerBase
                 if (!empty($errors)) {
                     return $this->html(['errors' => $errors], 'error');
                 }
-                if (!isset($_FILES['image'])) {
+                if ($image !="") {
                     $image = FileStorage::saveFile($this->request()->getFiles()['image']);
                 }
                 $article->setTitle($title);

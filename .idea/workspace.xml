@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f75be4e0-88b6-4927-b901-3aeb6d3d1c30" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Article/edit.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Article/edit.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Controllers/ArticleController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +18,16 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpServers">
+    <servers>
+      <server host="localhost" id="69486cc2-4d23-4c44-8c3e-bb65f30f0866" name="localhost" use_path_mappings="true">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$/projekt" remote-root="/var/www/html" />
+        </path_mappings>
+      </server>
+    </servers>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -80,6 +90,7 @@
       <workItem from="1733330424186" duration="1117000" />
       <workItem from="1733331750123" duration="267000" />
       <workItem from="1733332066636" duration="44000" />
+      <workItem from="1733332327397" duration="440000" />
     </task>
     <servers />
   </component>
