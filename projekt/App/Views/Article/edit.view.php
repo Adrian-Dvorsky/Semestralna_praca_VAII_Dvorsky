@@ -45,6 +45,7 @@
     </div>
 </form>
 
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         function validateForm() {
@@ -56,12 +57,10 @@
                 alert('Nadpis je povinný.');
                 return false;
             }
-
             if (content.trim() === "") {
                 alert('Obsah je povinný.');
                 return false;
             }
-
             if (image) {
                 let allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
                 if (!allowedTypes.includes(image.type)) {
@@ -69,7 +68,6 @@
                     return false;
                 }
             }
-
             return true;
         }
     });

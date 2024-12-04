@@ -1,26 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="f75be4e0-88b6-4927-b901-3aeb6d3d1c30" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Semestralna_praca_VAII_Dvorsky.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/icons/rocket.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/images/andromeda.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/images/background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/images/body.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/images/head_background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/images/milky-way.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/images/pillar-of-creation.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/images/the-orion-nebula.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/sites/createPost.html" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/sites/createPost.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/sites/logIn.html" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/sites/logIn.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/sites/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/sites/news.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/sites/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/sites/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Article/edit.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Article/edit.view.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,26 +19,32 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2plAjMS5mwyOpnVu1PXGroCduHK" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Docker.docker: Compose Deployment.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Docker.docker: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="docker: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
@@ -85,7 +77,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1733330422997</updated>
-      <workItem from="1733330424186" duration="139000" />
+      <workItem from="1733330424186" duration="1117000" />
+      <workItem from="1733331750123" duration="267000" />
+      <workItem from="1733332066636" duration="44000" />
     </task>
     <servers />
   </component>
