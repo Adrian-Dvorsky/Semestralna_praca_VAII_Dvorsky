@@ -5,18 +5,16 @@
 /** @var Array $data */
 
 ?>
-<form method="post" action="<?= $link->url('article.save') ?>" enctype="multipart/form-data">
+<form method="post" action="<?= $link->url('article.save') ?>" enctype="multipart/form-data" onsubmit="return validateForm()">
     <div class="container">
         <input type="hidden" name="id" value="<?=$data['article']?->getId()?>'">
         <div class="mb-3">
             <label for="titleInlut" class="form-label input-title">Nadpis článku</label>
-            <input type="text" class="form-control" id="titleInlut" name="title" value="<?=$data['article']?->getTitle()?>">
+            <input type="text" class="form-control" id="titleInput" name="title" value="<?=$data['article']?->getTitle()?>">
         </div>
         <div class="mb-3">
             <label for="inputContent" class="form-label input-title">Obsah</label>
-            <textarea class="form-control" id="inputContent" rows="3" style="height: 300px" name="content">
-                <?= htmlspecialchars($data['article']?->getContent() ?? '') ?>
-            </textarea>
+            <textarea class="form-control" id="inputContent" rows="3" style="height: 300px" name="content"><?= htmlspecialchars($data['article']?->getContent() ?? '') ?></textarea>
         </div>
         <?php if (!empty($data['article']?->getImage())): ?>
             <div class="mb-3">
