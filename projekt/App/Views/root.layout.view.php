@@ -32,14 +32,19 @@
                     <a class="nav-link active" aria-current="page" href="<?= $link->url("forum.index") ?>">Príspevky</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href=home.index">Príhlasiť sa</a>
+                    <a class="nav-link active" aria-current="page" href="<?= $link->url("auth.login") ?>"">Príhlasiť sa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home.index">Registrovať sa</a>
+                    <a class="nav-link active" aria-current="page" href="<?= $link->url("registration.reg") ?>">Registrovať sa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="<?= $link->url("article .add") ?>">Vytvor príspevok</a>
+                    <a class="nav-link active" aria-current="page" href="<?= $link->url("article.add") ?>">Vytvor príspevok</a>
                 </li>
+                <?php if (isset($_SESSION['user'])): ?>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="<?= $link->url("auth.logout") ?>">Odhlásiť sa</a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>

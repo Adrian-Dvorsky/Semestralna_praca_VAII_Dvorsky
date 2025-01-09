@@ -5,9 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f75be4e0-88b6-4927-b901-3aeb6d3d1c30" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/projekt/App/Auth/MyAuthenticator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projekt/App/Controllers/RegistrationController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projekt/App/Models/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projekt/App/Views/Registration/reg.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Auth/DummyAuthenticator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Config/Configuration.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Config/Configuration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/ArticleController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/AuthController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Models/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Models/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Article/add.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Article/add.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/App/Views/Article/edit.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Article/edit.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/public/uploads/28804515698921-Screenshot_20241125_135405_Teams.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Article/error.view.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Auth/login.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Auth/login.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Auth/logout.view.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Views/root.layout.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/root.layout.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/public/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +62,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -99,11 +114,42 @@
       <workItem from="1733403842800" duration="2593000" />
       <workItem from="1733690916026" duration="1134000" />
       <workItem from="1733726767094" duration="2801000" />
-      <workItem from="1736242394996" duration="1030000" />
+      <workItem from="1736242394996" duration="14194000" />
+      <workItem from="1736261240658" duration="10361000" />
+      <workItem from="1736410793052" duration="6496000" />
+      <workItem from="1736417402049" duration="8982000" />
+      <workItem from="1736429871185" duration="11552000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/projekt/App/Controllers/RegistrationController.php</url>
+          <line>19</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/projekt/App/Controllers/ArticleController.php</url>
+          <line>44</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

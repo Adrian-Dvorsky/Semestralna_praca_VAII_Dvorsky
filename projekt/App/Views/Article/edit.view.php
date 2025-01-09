@@ -14,7 +14,7 @@
         </div>
         <div class="mb-3">
             <label for="inputContent" class="form-label input-title">Obsah</label>
-            <textarea class="form-control" id="inputContent" rows="3" style="height: 300px" name="content"><?= htmlspecialchars($data['article']?->getContent() ?? '') ?></textarea>
+            <textarea class="form-control" id="inputContent" rows="3" style="height: 300px" name="content"> <?= htmlspecialchars($data['article']?->getContent() ?? '') ?></textarea>
         </div>
         <?php if (!empty($data['article']?->getImage())): ?>
             <div class="mb-3">

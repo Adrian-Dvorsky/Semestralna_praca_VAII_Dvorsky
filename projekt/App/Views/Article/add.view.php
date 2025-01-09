@@ -7,7 +7,7 @@
 <form method="post" action="<?= $link->url('article.save') ?>" enctype="multipart/form-data" onsubmit="return validateForm()">
     <div class="container">
       <div class="mb-3">
-        <label for="titleInlut" class="form-label input-title">Nadpis článku</label>
+        <label for="titleInput" class="form-label input-title">Nadpis článku</label>
         <input type="text" class="form-control" id="titleInput" name="title">
       </div>
       <div class="mb-3">
@@ -19,8 +19,15 @@
           <input type="file" class="form-control" id="formFile" name="image" accept="image/*">
       </div>
     <div class="mb-3">
-        <label for="inputTags" class="form-label input-title">Tagy (oddelené čiarkami začinajúce #)</label>
-        <input type="text" class="form-control" id="inputTags" placeholder="napr. #vesmír, #technológia, #planéty" name="tags">
+        <label for="inputTags" class="form-label input-title">Tagy </label>
+            <?php foreach ($data['tags'] as $tag): ?>
+                <div class="form-chech">
+                    <input class="form-check-input" type="checkbox" id="tag_<?= htmlspecialchars($tag->getId()) ?>"  name="tags[]"  value="<?= htmlspecialchars($tag->getId()) ?>">
+                        <label class="form-check-label label-add" for="tag_<?= htmlspecialchars($tag->getId()) ?>">
+                            <?= htmlspecialchars($tag->getName()) ?>
+                        </label>
+                </div>
+            <?php endforeach; ?>
     </div>
     <div class="mb-3">
         <label for="inputLinks" class="form-label input-title">Pridaj odkazy (jeden na riadok)</label>

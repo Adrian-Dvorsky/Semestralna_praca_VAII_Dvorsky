@@ -6,10 +6,10 @@ use App\Core\AControllerBase;
 use App\Core\HTTPException;
 use App\Core\Responses\RedirectResponse;
 use App\Core\Responses\Response;
-use App\Core\Responses\ViewResponse;
 use App\Helpers\FileStorage;
 use App\Models\Article;
-
+use App\Models\Tag;
+use App\Models\ArticleTag;
 class ArticleController extends AControllerBase
 {
 
@@ -23,7 +23,11 @@ class ArticleController extends AControllerBase
 
     public function add(): Response
     {
-        return $this->html();
+        return $this->html(
+            [
+                'tags' =>  Tag::getAll()
+            ],
+        );
     }
 
     public function save() : Response
@@ -41,32 +45,38 @@ class ArticleController extends AControllerBase
                 $article = new Article();
                 $title = $_POST['title'];
                 $content = $_POST['content'];
-                $tags = $_POST['tags'];
+                $author = $this->app->getAuth()->getLoggedUserName();
                 $link = $_POST['link'];
                 $image = $this->request()->getFiles()['image']['name'];
-                $errors = [];
                 if (empty($title) || empty($content)) {
-                    $errors[] = 'Polia nadpís a obsah musia byť vyplnené';
+                    $_SESSION['error_message'] = 'Polia nadpís a obsah musia byť vyplnené';
                 }
                 if ($image != "") {
                     $imageFile = $_FILES['image'];
                     $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
                     if (!in_array($imageFile['type'], $allowedTypes)) {
-                        $errors[] = 'Obrázok nie je spravnom formate';
+                        $_SESSION['error_message'] = 'Obrázok nie je spravnom formate';
                     }
                 }
                 if (!empty($errors)) {
-                    return $this->html(['errors' => $errors], 'error');
+                    return $this->html(['errors' => $errors],);
                 }
                 if ($image !="") {
                     $image = FileStorage::saveFile($this->request()->getFiles()['image']);
                 }
                 $article->setTitle($title);
                 $article->setContent($content);
+                $article->setAuthor($author);
                 $article->setImage($image);
-                $article->setTags($tags);
                 $article->setLink($link);
                 $article->save();
+                $tags = $_POST['tags'];
+                for ($i = 0; $i < count($tags); $i++) {
+                    $artTag = new ArticleTag();
+                    $artTag->setIdTag($tags[$i]);
+                    $artTag->setIdArticle($article->getId());
+                    $artTag->save();
+                }
                 return new RedirectResponse($this->url('home.index'));
             }
             $title = $_POST['title'];

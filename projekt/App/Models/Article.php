@@ -7,10 +7,10 @@ use App\Core\Model;
 class Article extends Model
 {
     protected ?int $id = null;
+    protected string $author;
     protected string $title;
     protected string $content;
     protected ?string $image;
-    protected ?string $tags;
     protected ?string $link;
 
     public function getId(): ?int
@@ -53,16 +53,6 @@ class Article extends Model
         $this->image = $image;
     }
 
-    public function getTags(): ?string
-    {
-        return $this->tags;
-    }
-
-    public function setTags(?string $tags): void
-    {
-        $this->tags = $tags;
-    }
-
     public function getLink(): ?string
     {
         return $this->link;
@@ -71,5 +61,15 @@ class Article extends Model
     public function setLink(?string $link): void
     {
         $this->link = $link;
+    }
+
+    public function getAuthor(): string
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(string $author): void
+    {
+        $this->author = $author;
     }
 }
