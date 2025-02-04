@@ -59,7 +59,7 @@ class ArticleController extends AControllerBase
                     }
                 }
                 if (!empty($errors)) {
-                    return $this->html(['errors' => $errors],);
+                    return $this->html(['errors' => $errors]);
                 }
                 if ($image !="") {
                     $image = FileStorage::saveFile($this->request()->getFiles()['image']);
@@ -105,8 +105,26 @@ class ArticleController extends AControllerBase
             }
             $article->setTitle($title);
             $article->setContent($content);
-            $article->setTags($_POST['tags']);
             $article->setLink($_POST['link']);
+            $tags = $_POST['tags'];
+            $currentTags = ArticleTag::getAll('idArticle = ?', [$article->getId()]);
+            $tagsCurrentId = array_map(fn($tag) => $tag->getIdTag(), $currentTags);
+
+            foreach ($currentTags as $currentTag) {
+                if (!in_array($currentTag->getIdTag(), $tags)) {
+                    $tagToDelete = $currentTag;
+                    $tagToDelete->delete();
+                }
+            }
+
+            foreach ($tags as $tagId) {
+                if (!in_array($tagId, $tagsCurrentId)) {
+                    $tagToAdd = new ArticleTag();
+                    $tagToAdd->setIdArticle($article->getId());
+                    $tagToAdd->setIdTag($tagId);
+                    $tagToAdd->save();
+                }
+            }
             $article->save();
         }
         return new RedirectResponse($this->url('home.index'));
@@ -119,6 +137,7 @@ class ArticleController extends AControllerBase
         return $this->html(
             [
                 'article' => $article,
+                'tags' => Tag::getAll(),
             ],'edit'
         );
     }
@@ -134,7 +153,8 @@ class ArticleController extends AControllerBase
                 FileStorage::deleteFile($article->getImage());
             }
             $article->delete();
-            return new RedirectResponse($this->url('home.index'));
+            return $this->json(['success' => true, 'message' => 'Článok bol vymazaný']);
         }
     }
+
 }

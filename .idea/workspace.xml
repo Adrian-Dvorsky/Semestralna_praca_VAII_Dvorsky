@@ -5,21 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f75be4e0-88b6-4927-b901-3aeb6d3d1c30" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/projekt/App/Auth/MyAuthenticator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt/App/Controllers/RegistrationController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt/App/Models/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt/App/Views/Registration/reg.view.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projekt/public/images/user.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Semestralna_praca_VAII_Dvorsky.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Semestralna_praca_VAII_Dvorsky.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Auth/DummyAuthenticator.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Config/Configuration.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Config/Configuration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/ArticleController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/AuthController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Models/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Models/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Auth/MyAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Auth/MyAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Controllers/ArticleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/ForumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Controllers/ForumController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Controllers/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Admin/index.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Admin/index.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/App/Views/Article/add.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Article/add.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/App/Views/Article/edit.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Article/edit.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Article/error.view.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Auth/login.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Auth/login.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Auth/logout.view.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Forum/index.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Forum/index.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/App/Views/root.layout.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/root.layout.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/public/css/style.css" afterDir="false" />
     </list>
@@ -66,6 +64,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\adria\Desktop\Semestralna_praca_VAII_Dvorsky\projekt\public\images" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
@@ -119,6 +122,9 @@
       <workItem from="1736410793052" duration="6496000" />
       <workItem from="1736417402049" duration="8982000" />
       <workItem from="1736429871185" duration="11552000" />
+      <workItem from="1736501776116" duration="3000" />
+      <workItem from="1736639290467" duration="2502000" />
+      <workItem from="1738659662389" duration="39330000" />
     </task>
     <servers />
   </component>
@@ -140,14 +146,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/projekt/App/Controllers/RegistrationController.php</url>
-          <line>19</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/projekt/App/Controllers/ArticleController.php</url>
-          <line>44</line>
-          <option name="timeStamp" value="17" />
+          <line>145</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

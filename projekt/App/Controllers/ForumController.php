@@ -16,7 +16,9 @@ class ForumController extends AControllerBase
     {
         return $this->html(
             [
-                'articles' =>Article::getAll()
+                'articles' =>Article::getAll(),
+                'user' => isset($_SESSION['user']),
+                'role' => isset($_SESSION['role'])
             ]
         );
     }

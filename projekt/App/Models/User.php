@@ -10,6 +10,7 @@ class User extends Model
     protected string $password;
 
     protected ?int $id;
+    protected string $role;
     public function getUserName(): string
     {
         return $this->userName;
@@ -38,6 +39,16 @@ class User extends Model
     public function setId(?int $id): void
     {
         $this->id = $id;
+    }
+
+    public function getRole(): string
+    {
+        return $this->role;
+    }
+
+    public function setRole(string $role): void
+    {
+        $this->role = $role;
     }
 
 

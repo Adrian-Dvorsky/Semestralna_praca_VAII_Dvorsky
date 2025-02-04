@@ -39,9 +39,10 @@
 
 
 <script>
+
     function validateForm() {
         let title = document.getElementById('titleInput').value;
-        let content = document.getElementById('inputContent').value;
+        let content = tinymce.get('inputContent').getContent();
         let image = document.getElementById('formFile').files[0];
         let link = document.getElementById('inputLinks').value;
         let urlRegex = /^(https?:\/\/)?([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})(:[0-9]+)?(\/[^\s]*)?$/;
@@ -73,4 +74,16 @@
 
         return true;
     }
+</script>
+
+<script>
+    window.onload = function() {
+        tinymce.init({
+            selector: '#inputContent',
+            plugins: 'advlist autolink lists link charmap preview anchor',
+            toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright | bullist numlist outdent indent',
+            menubar: false,
+            height: 300
+        });
+    };
 </script>

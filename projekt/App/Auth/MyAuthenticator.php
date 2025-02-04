@@ -17,6 +17,7 @@ class MyAuthenticator implements IAuthenticator
             $user = $user[0];
             if ($login == $user->getUserName() && password_verify($password, $user->getPassword())) {
                 $_SESSION["user"] = $login;
+                $_SESSION["role"] = $user->getRole();
                 return true;
             }
             $_SESSION["error_message"] = "Meno alebo heslo nie je spravne";
@@ -29,6 +30,7 @@ class MyAuthenticator implements IAuthenticator
     {
         if (isset($_SESSION["user"])) {
             unset($_SESSION["user"]);
+            unset($_SESSION["role"]);
             session_destroy();
         }
     }
@@ -51,5 +53,10 @@ class MyAuthenticator implements IAuthenticator
     public function isLogged(): bool
     {
         return $_SESSION["user"] != null;
+    }
+
+    public function isAdmin(): bool
+    {
+        return $_SESSION["role"] == "a";
     }
 }

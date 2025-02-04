@@ -10,6 +10,7 @@
     <title><?= \App\Config\Configuration::APP_NAME ?></title>
     <meta charset="UTF-8">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tinymce@6/tinymce.min.js"></script>
     <link type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="public/css/style.css?v=<?= time() ?>">
 </head>
@@ -37,13 +38,20 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="<?= $link->url("registration.reg") ?>">Registrovať sa</a>
                 </li>
+                <?php if (isset($_SESSION['user'])): ?>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="<?= $link->url("article.add") ?>">Vytvor príspevok</a>
                 </li>
-                <?php if (isset($_SESSION['user'])): ?>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="<?= $link->url("auth.logout") ?>">Odhlásiť sa</a>
                     </li>
+                <?php endif; ?>
+                <?php if (isset($_SESSION['user'])): ?>
+                    <?php if ($_SESSION['role'] === 'a') : ?>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="<?= $link->url("admin.index") ?>">Spravuj užívateľov</a>
+                        </li>
+                    <?php endif; ?>
                 <?php endif; ?>
             </ul>
         </div>

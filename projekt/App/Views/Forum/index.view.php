@@ -52,30 +52,44 @@ Autor: OpticFree
             </div>
 
             <?php foreach($data['articles'] as $article):?>
-                <div class="mini-box">
+                <div id="article-<?= $article->getId() ?>"  class="mini-box">
                     <h1>
                         <?= $article->getTitle()?>
                     </h1>
                     <p class="mini-box-content">
-                        <?= $article->getContent()?>
+                        <?= htmlspecialchars_decode($article->getContent()) ?>
                     </p>
                     <?php if (!empty($article->getImage())): ?>
                         <img src="<?= \App\Helpers\FileStorage::UPLOAD_DIR . '/' . htmlspecialchars($article->getImage()) ?>" class="img-fluid article-image" alt="Article Image">
                     <?php endif; ?>
                     <a href="<?= htmlspecialchars($article->getLink()) ?>" target="_blank" rel="noopener noreferrer" style="display: block; text-align: left; margin-left: 0;">Odkaz</a>
-                    <p class="description">
-                        autor: Marek Saniga
+                    <p style="text-align: left">
+                        <?php
+                        $tags = \App\Models\ArticleTag::getAll('idArticle = ?', [$article->getId()]);
+                            if (!empty($tags)) {
+                                $tagsName = [];
+                                foreach ($tags as $tag) {
+                                    $tagObj = \App\Models\Tag::getOne($tag->getIdTag());
+                                    $name = '#' . $tagObj->getName();
+                                    $tagsName[] = $name;
+                                }
+                                echo implode(', ', $tagsName);
+                            }
+
+                        ?>
                     </p>
-                    <div class="article-buttons">
-                        <form method="post" action="<?= $link->url('article.delete') ?>" style="display: inline;">
-                            <input type="hidden" name="id" value="<?= $article->getId() ?>">
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                        <form method="post" action="<?= $link->url('article.edit') ?>" style="display: inline;">
-                            <input type="hidden" name="id" value="<?= $article->getId() ?>">
-                            <button type="submit" class="btn btn-primary">Update</button>
-                        </form>
-                    </div>
+                    <p class="description">
+                        autor: <?= htmlspecialchars($article->getAuthor()) ?>
+                    </p>
+                    <?php if (isset($_SESSION['user']) && $_SESSION['user'] == $article->getAuthor()): ?>
+                        <div class="article-buttons">
+                            <button type="button" class="btn btn-danger delete-article" data-id="<?= $article->getId() ?>">Delete</button>
+                            <form method="post" action="<?= $link->url('article.edit') ?>" style="display: inline;">
+                                <input type="hidden" name="id" value="<?= $article->getId() ?>">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </form>
+                        </div>
+                    <?php endif; ?>
                 </div>
             <?php endforeach;?>
     </div>
@@ -84,3 +98,27 @@ Treba dorobiť informácie o používateľovi, príspevkov ....
     </div>
     </div>
 </div>
+
+<script>
+    document.querySelectorAll('.delete-article').forEach(button => {
+        button.addEventListener('click', function () {
+            let articleId = this.getAttribute('data-id');
+            fetch('http://localhost/?c=article&a=delete&id=' + articleId, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'id=' + articleId
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById('article-' + articleId).remove();
+                    } else {
+                        alert(data.message);
+                    }
+                })
+                .catch(error => console.error('Chyba:', error));
+        });
+    });
+</script>

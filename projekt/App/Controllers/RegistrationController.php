@@ -28,7 +28,9 @@ class RegistrationController extends AControllerBase
                 $user = new User();
                 $user->setUsername($username);
                 $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
+                $user->setRole("n");
                 $user->save();
+                $this->app->getAuth()->login($username, $password);
                 return $this->redirect($this->url("home.index"));
             }
 
