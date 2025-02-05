@@ -83,7 +83,7 @@ Autor: OpticFree
                     </p>
                     <?php if (isset($_SESSION['user']) && $_SESSION['user'] == $article->getAuthor()): ?>
                         <div class="article-buttons">
-                            <button type="button" class="btn btn-danger delete-article" data-id="<?= $article->getId() ?>">Delete</button>
+                            <button type="button" class="btn btn-danger delete-article" data-id="<?= $article->getId() ?>">Vymaž</button>
                             <form method="post" action="<?= $link->url('article.edit') ?>" style="display: inline;">
                                 <input type="hidden" name="id" value="<?= $article->getId() ?>">
                                 <button type="submit" class="btn btn-primary">Update</button>
@@ -92,11 +92,43 @@ Autor: OpticFree
                     <?php endif; ?>
                 </div>
             <?php endforeach;?>
+
     </div>
     <div class="main-box col-md-6">
-Treba dorobiť informácie o používateľovi, príspevkov ....
+        <?php if (isset($_SESSION['user'])): ?>
+            <button class="event-button" id="showFormBtn">Pridať udalosť</button>
+                <div id="eventFormContainer" style="text-align: left; display: none">
+                    <form id="eventForm" class="event-form">
+                        <div>
+                            <label style="font-weight: bold; font-size: 20px" for="eventTitle">Názov udalosti:</label>
+                            <input type="text" id="eventTitle" name="eventTitle" style="width: 100%" placeholder="Zadajte názov udalosti">
+                        </div>
+                        <div>
+                            <label style="font-weight: bold; font-size: 20px" for="eventDate">Dátum udalosti:</label>
+                            <input type="text" id="eventDate" name="eventDate" placeholder="Vyberte dátum udalosti">
+                        </div>
+                        <div>
+                            <label style="font-weight: bold; font-size: 20px" for="eventDescription">Popis udalosti:</label>
+                            <input id="eventDescription" name="eventDescription" style="width: 100%" placeholder="Napíšte popis udalosti">
+                        </div>
+                        <button class="event-button" type="submit">Pridať udalosť</button>
+                    </form>
+
+                </div>
+        <?php foreach($data['events'] as $event): ?>
+            <div class="event-card" id="event-<?= $event->getId() ?>">
+                <h3 class="event-title"><?= htmlspecialchars($event->getTitle()) ?></h3>
+                <p class="event-date">Dátum konania <?= htmlspecialchars($event->getDate()) ?></p>
+                <p class="event-content"><?= htmlspecialchars($event->getContent()) ?></p>
+                <button class="delete-event-btn" data-event-id="<?= $event->getId() ?>">Vymazať</button>
+            </div>
+        <?php endforeach; ?>
+        <div class="events-container">
+
+        </div>
+        <?php endif; ?>
     </div>
-    </div>
+</div>
 </div>
 
 <script>
@@ -113,12 +145,111 @@ Treba dorobiť informácie o používateľovi, príspevkov ....
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        document.getElementById('article-' + articleId).remove();
+                        let articleElement = document.getElementById('article-' + articleId);
+                        if (articleElement) {
+                            articleElement.remove();
+                        }
                     } else {
                         alert(data.message);
                     }
                 })
                 .catch(error => console.error('Chyba:', error));
         });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#eventDate").datepicker({
+            dateFormat: "yy-mm-dd",
+            minDate: 0,
+            changeMonth: true,
+            changeYear: true,
+            showButtonPanel: true
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let eventForm = document.getElementById("eventForm");
+
+        if (eventForm) {
+            eventForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+
+                fetch('http://localhost/?c=event&a=save', {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            eventForm.reset();
+                            document.getElementById("eventFormContainer").style.display = "none";
+
+                            let eventCard = document.createElement("div");
+                            eventCard.classList.add("event-card");
+                            eventCard.setAttribute("id", "event-" + data.id);
+
+                            eventCard.innerHTML = `
+                            <h3 class="event-title">${data.title}</h3>
+                            <p class="event-date">Dátum konania: ${data.date}</p>
+                            <p class="event-content">${data.content}</p>
+                            <button class="delete-event-btn" data-event-id="${data.id}">Vymazať</button>
+                        `;
+
+                            document.querySelector(".events-container").appendChild(eventCard);
+                        } else {
+                            alert("Chyba pri odosielaní údajov.");
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Chyba:', error);
+                        alert("Chyba pri odosielaní požiadavky.");
+                    });
+            });
+        }
+    });
+
+</script>
+
+<script>
+    document.querySelectorAll('.delete-event-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            let eventId = this.getAttribute('data-event-id');
+            fetch('http://localhost/?c=event&a=delete&id=' + eventId, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'id=' + eventId
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        let eventElement = document.getElementById('event-' + eventId);
+                        if (eventElement) {
+                            eventElement.remove();
+                        }
+                    } else {
+                        alert(data.message);
+                    }
+                })
+                .catch(error => console.error('Chyba:', error));
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let showFormBtn = document.getElementById("showFormBtn");
+        if (showFormBtn) {
+            showFormBtn.addEventListener("click", function () {
+                let formContainer = document.getElementById("eventFormContainer");
+                if (formContainer) {
+                    formContainer.style.display = formContainer.style.display === "none" ? "block" : "none";
+                }
+            });
+        }
     });
 </script>

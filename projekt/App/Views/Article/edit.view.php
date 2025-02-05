@@ -5,7 +5,8 @@
 /** @var Array $data */
 
 ?>
-<form method="post" action="<?= $link->url('article.save') ?>" enctype="multipart/form-data" onsubmit="return validateForm()">
+
+<form method="post" action="<?= $link->url('article.saveEdit') ?>" enctype="multipart/form-data" onsubmit="return validateForm()">
     <div class="container">
         <input type="hidden" name="id" value="<?=$data['article']?->getId()?>'">
         <div class="mb-3">

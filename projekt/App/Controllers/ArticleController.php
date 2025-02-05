@@ -61,7 +61,7 @@ class ArticleController extends AControllerBase
                 if (!empty($errors)) {
                     return $this->html(['errors' => $errors]);
                 }
-                if ($image !="") {
+                if ($image != "") {
                     $image = FileStorage::saveFile($this->request()->getFiles()['image']);
                 }
                 $article->setTitle($title);
@@ -71,61 +71,15 @@ class ArticleController extends AControllerBase
                 $article->setLink($link);
                 $article->save();
                 $tags = $_POST['tags'];
-                for ($i = 0; $i < count($tags); $i++) {
-                    $artTag = new ArticleTag();
-                    $artTag->setIdTag($tags[$i]);
-                    $artTag->setIdArticle($article->getId());
-                    $artTag->save();
-                }
-                return new RedirectResponse($this->url('home.index'));
-            }
-            $title = $_POST['title'];
-            $content = $_POST['content'];
-            $image = $this->request()->getFiles()['image']['name'];
-            $errors = [];
-            if (empty($title) || empty($content)) {
-                $errors[] = 'Polia nadpís a obsah musia byť vyplnené';
-            }
-            if ($image != "") {
-                $imageFile = $_FILES['image'];
-                $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
-                if (!in_array($imageFile['type'], $allowedTypes)) {
-                    $errors[] = 'Obrázok nie je spravnom formate';
+                if ($tags != null) {
+                    for ($i = 0; $i < count($tags); $i++) {
+                        $artTag = new ArticleTag();
+                        $artTag->setIdTag($tags[$i]);
+                        $artTag->setIdArticle($article->getId());
+                        $artTag->save();
+                    }
                 }
             }
-            if (!empty($errors)) {
-                return $this->html(['errors' => $errors], 'error');
-            }
-            if ($image != "") {
-                if ($oldFIlneName != "") {
-                    FileStorage::deleteFile($oldFIlneName);
-                }
-                $image = FileStorage::saveFile($this->request()->getFiles()['image']);
-                $article->setImage($image);
-            }
-            $article->setTitle($title);
-            $article->setContent($content);
-            $article->setLink($_POST['link']);
-            $tags = $_POST['tags'];
-            $currentTags = ArticleTag::getAll('idArticle = ?', [$article->getId()]);
-            $tagsCurrentId = array_map(fn($tag) => $tag->getIdTag(), $currentTags);
-
-            foreach ($currentTags as $currentTag) {
-                if (!in_array($currentTag->getIdTag(), $tags)) {
-                    $tagToDelete = $currentTag;
-                    $tagToDelete->delete();
-                }
-            }
-
-            foreach ($tags as $tagId) {
-                if (!in_array($tagId, $tagsCurrentId)) {
-                    $tagToAdd = new ArticleTag();
-                    $tagToAdd->setIdArticle($article->getId());
-                    $tagToAdd->setIdTag($tagId);
-                    $tagToAdd->save();
-                }
-            }
-            $article->save();
         }
         return new RedirectResponse($this->url('home.index'));
     }
@@ -149,12 +103,73 @@ class ArticleController extends AControllerBase
         if (is_null($article)) {
             throw new HTTPException(404);
         } else {
-            if ($article->getImage() !== null || $article->getImage() !== "") {
+            if ($article->getImage() !== "") {
                 FileStorage::deleteFile($article->getImage());
             }
             $article->delete();
             return $this->json(['success' => true, 'message' => 'Článok bol vymazaný']);
         }
+    }
+
+    public function saveEdit() : Response
+    {
+        $id = (int)$this->request()->getValue('id');
+        $oldFIlneName = "";
+
+        if ($id > 0) {
+            $article = Article::getOne($id);
+            if ($article->getImage() !== null || $article->getImage() !== "") {
+                $oldFIlneName = $article->getImage();
+            }
+        }
+        $title = trim($_POST['title']);
+        $content = trim($_POST['content']);
+        $image = $this->request()->getFiles()['image']['name'];
+        $errors = [];
+        if (empty($title) || empty($content)) {
+            $errors[] = 'Polia nadpís a obsah musia byť vyplnené';
+        }
+        if ($image != "") {
+            $imageFile = $_FILES['image'];
+            $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
+            if (!in_array($imageFile['type'], $allowedTypes)) {
+                $errors[] = 'Obrázok nie je spravnom formate';
+            }
+        }
+        if (!empty($errors)) {
+            return $this->html(['errors' => $errors], 'error');
+        }
+        if ($image != "") {
+            if ($oldFIlneName != "") {
+                FileStorage::deleteFile($oldFIlneName);
+            }
+            $image = FileStorage::saveFile($this->request()->getFiles()['image']);
+            $article->setImage($image);
+        }
+        $article->setTitle(htmlspecialchars($title, ENT_QUOTES, 'UTF-8'));
+        $article->setContent(htmlspecialchars($content, ENT_QUOTES, 'UTF-8'));
+        $article->setLink(htmlspecialchars($_POST['link'], ENT_QUOTES, 'UTF-8'));
+        $tags = $_POST['tags'];
+        $currentTags = ArticleTag::getAll('idArticle = ?', [$article->getId()]);
+        $tagsCurrentId = array_map(fn($tag) => $tag->getIdTag(), $currentTags);
+
+        foreach ($currentTags as $currentTag) {
+            if (!in_array($currentTag->getIdTag(), $tags)) {
+                $tagToDelete = $currentTag;
+                $tagToDelete->delete();
+            }
+        }
+
+        foreach ($tags as $tagId) {
+            if (!in_array($tagId, $tagsCurrentId)) {
+                $tagToAdd = new ArticleTag();
+                $tagToAdd->setIdArticle($article->getId());
+                $tagToAdd->setIdTag($tagId);
+                $tagToAdd->save();
+            }
+        }
+        $article->save();
+        return new RedirectResponse($this->url('home.index'));
     }
 
 }

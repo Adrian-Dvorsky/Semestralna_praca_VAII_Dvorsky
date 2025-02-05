@@ -5,21 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f75be4e0-88b6-4927-b901-3aeb6d3d1c30" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/projekt/public/images/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projekt/App/Views/Event/add.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Semestralna_praca_VAII_Dvorsky.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Semestralna_praca_VAII_Dvorsky.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Auth/MyAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Auth/MyAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Controllers/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Controllers/ArticleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/ForumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Controllers/ForumController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Controllers/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Admin/index.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Admin/index.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Article/add.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Article/add.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/App/Views/Article/edit.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Article/edit.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/App/Views/Forum/index.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Forum/index.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/App/Views/root.layout.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/root.layout.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/public/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +117,9 @@
       <workItem from="1736429871185" duration="11552000" />
       <workItem from="1736501776116" duration="3000" />
       <workItem from="1736639290467" duration="2502000" />
-      <workItem from="1738659662389" duration="39330000" />
+      <workItem from="1738659662389" duration="40840000" />
+      <workItem from="1738708370658" duration="607000" />
+      <workItem from="1738747453706" duration="8026000" />
     </task>
     <servers />
   </component>
@@ -141,16 +136,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/projekt/App/Controllers/ArticleController.php</url>
-          <line>145</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
