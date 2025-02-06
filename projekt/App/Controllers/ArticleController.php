@@ -120,6 +120,10 @@ class ArticleController extends AControllerBase
         }
         $id = (int)$this->request()->getValue('id');
         $article = Article::getOne($id);
+        if ($this->app->getAuth()->getLoggedUserName() !== $article->getAuthor()) {
+            $_SESSION['error_message'] = "Nemáš právo mazať";
+            return $this->redirect($this->url("home.index"));
+        }
         return $this->html(
             [
                 'article' => $article,
@@ -167,6 +171,10 @@ class ArticleController extends AControllerBase
             $article = new Article();
             $author = $this->app->getAuth()->getLoggedUserName();
             $article->setAuthor($author);
+        }
+        if ($this->app->getAuth()->getLoggedUserName() !== $article->getAuthor()) {
+            $_SESSION['error_message'] = "Nemáš právo mazať";
+            return $this->redirect($this->url("home.index"));
         }
         $title = trim($_POST['title']);
         $content = trim($_POST['content']);

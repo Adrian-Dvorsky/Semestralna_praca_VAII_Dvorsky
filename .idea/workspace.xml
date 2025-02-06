@@ -6,21 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f75be4e0-88b6-4927-b901-3aeb6d3d1c30" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Auth/MyAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Auth/MyAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Controllers/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Controllers/ArticleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Controllers/EventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/ForumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Controllers/ForumController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Admin/index.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Admin/index.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Article/add.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Article/add.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Article/edit.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Article/edit.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Auth/login.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Auth/login.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Event/add.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Event/add.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Forum/index.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Forum/index.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Home/index.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Home/index.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Views/root.layout.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/root.layout.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/public/uploads/21018899685827-file.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,22 +37,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Docker.docker: Compose Deployment.executor": "Run",
-    "Notification.DisplayName-DoNotAsk-Debugger": "Debugger",
-    "Notification.DoNotAsk-Debugger": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Docker.docker: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-Debugger&quot;: &quot;Debugger&quot;,
+    &quot;Notification.DoNotAsk-Debugger&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\adria\Desktop\Semestralna_praca_VAII_Dvorsky\projekt\public\images" />
@@ -132,6 +118,10 @@
       <workItem from="1738747453706" duration="47077000" />
       <workItem from="1738799992072" duration="178000" />
       <workItem from="1738832680653" duration="24511000" />
+      <workItem from="1738864661333" duration="203000" />
+      <workItem from="1738864879200" duration="208000" />
+      <workItem from="1738865095666" duration="2000" />
+      <workItem from="1738865118379" duration="7000" />
     </task>
     <servers />
   </component>
@@ -148,16 +138,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/projekt/App/Controllers/ArticleController.php</url>
-          <line>154</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
