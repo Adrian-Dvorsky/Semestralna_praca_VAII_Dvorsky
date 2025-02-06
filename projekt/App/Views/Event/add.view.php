@@ -18,8 +18,6 @@
     <button type="submit">Pridať udalosť</button>
 </form>
 
-
-
 <script>
     $(document).ready(function() {
         $('#eventDate').datepicker({

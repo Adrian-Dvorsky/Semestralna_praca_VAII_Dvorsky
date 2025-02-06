@@ -9,7 +9,7 @@ use App\Models\Article;
 
 <div class="container">
     <?php foreach($data['users'] as $users):?>
-        <div class="user-box">
+        <div class="user-box"  id="user-<?= $users->getId()?>">
             <?php
                 $article = Article::getAll('author = ?', [$users->getUsername()]);
                 $count = count($article);
@@ -26,11 +26,36 @@ use App\Models\Article;
                 </p>
             </div>
                 <div style="margin-left: auto">
-                    <form method="post" action="<?= $link->url('admin.destroyUser') ?>" style="display: inline;">
                         <input type="hidden" name="userName" value="<?= $users->getUserName() ?>">
-                        <button class="user-delete-button" type="submit"> Delete</button>
-                    </form>
+                        <button class="user-delete-button" type="button" data-user-id="<?= $users->getId()?>"> Vymaz</button>
                 </div>
         </div>
     <?php endforeach;?>
 </div>
+
+<script>
+    document.querySelectorAll('.user-delete-button').forEach(button => {
+        button.addEventListener('click', function () {
+            let userId = this.getAttribute('data-user-id');
+            fetch('http://localhost/?c=admin&a=destroyUser&id=' + userId, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'id=' + userId
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        let articleElement = document.getElementById('user-' + userId);
+                        if (articleElement) {
+                            articleElement.remove();
+                        }
+                    } else {
+                        alert(data.message);
+                    }
+                })
+                .catch(error => console.error('Chyba:', error));
+        });
+    });
+</script>

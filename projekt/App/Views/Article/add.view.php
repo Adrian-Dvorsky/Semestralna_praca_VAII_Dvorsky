@@ -45,11 +45,19 @@
         let content = tinymce.get('inputContent').getContent();
         let link = document.getElementById('inputLinks').value;
         let urlRegex = /^(https?:\/\/)?([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})(:[0-9]+)?(\/[^\s]*)?$/;
+        let image = document.getElementById("formFile").files[0];
 
         if (title.trim() === "") {
             alert('Nadpis je povinný.');
             return false;
         }
+        if (image) {
+            if (image.size > 15 * 1024 * 1024) {
+                alert("Obrázok nesmie byť väčší ako 15MB.");
+                return false;
+            }
+        }
+
 
         if (content.trim() === "") {
             alert('Obsah je povinný.');
@@ -62,6 +70,8 @@
                 return false;
             }
         }
+
+
 
         return true;
     }

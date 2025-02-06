@@ -25,6 +25,7 @@ class MyAuthenticator implements IAuthenticator
             $_SESSION["error_message"] = "Meno alebo heslo nie je spravne";
             return false;
         }
+        $_SESSION["error_message"] = "Používateľ sa nenšiel";
         return false;
     }
 
@@ -65,7 +66,7 @@ class MyAuthenticator implements IAuthenticator
 
     public function isAdmin(): bool
     {
-        return $_SESSION["role"] == "a";
+        return isset($_SESSION["role"]) && $_SESSION["role"] == "a";
     }
 
 }

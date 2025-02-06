@@ -20,7 +20,9 @@
         </div>
         <div class="mb-3">
             <label for="inputContent" class="form-label input-title">Obsah</label>
-            <textarea class="form-control" id="inputContent" rows="3" style="height: 300px" name="content"> <?= htmlspecialchars($data['article']?->getContent() ?? '') ?></textarea>
+            <textarea class="form-control" id="inputContent" rows="3" style="height: 300px" name="content">
+                <?= html_entity_decode($data['article']?->getContent() ?? '', ENT_QUOTES, 'UTF-8') ?>
+            </textarea>
         </div>
         <?php if (!empty($data['article']?->getImage())): ?>
             <div class="mb-3">
@@ -115,4 +117,17 @@
 
         return true;
     }
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let alertBox = document.querySelector(".alert-danger");
+        if (alertBox) {
+            setTimeout(function () {
+                alertBox.style.transition = "opacity 0.5s ease-out";
+                alertBox.style.opacity = "0";
+                setTimeout(() => alertBox.remove(), 500);
+            }, 3000);
+        }
+    });
 </script>

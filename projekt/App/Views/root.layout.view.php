@@ -47,9 +47,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="<?= $link->url("article.add") ?>">Vytvor príspevok</a>
                 </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="<?= $link->url("auth.logout") ?>">Odhlásiť sa</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="<?= $link->url("auth.logout") ?>">Odhlásiť sa</a>
+                </li>
                 <?php endif; ?>
                 <?php if (isset($_SESSION['user'])): ?>
                     <?php if ($_SESSION['role'] === 'a') : ?>
@@ -59,6 +59,15 @@
                     <?php endif; ?>
                 <?php endif; ?>
             </ul>
+            <?php if (isset($_SESSION['user'])): ?>
+                <ul class="navbar-nav ms-3 mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <span class="navbar-text text-light" style="font-size: 18px; margin-right: 30px">
+                        Prihlásený používateľ : <?= $_SESSION['user']; ?>
+                    </span>
+                    </li>
+                </ul>
+            <?php endif; ?>
         </div>
     </div>
 </nav>

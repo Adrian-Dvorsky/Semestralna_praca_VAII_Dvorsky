@@ -55,28 +55,31 @@ class ArticleController extends AControllerBase
                 $author = $this->app->getAuth()->getLoggedUserName();
                 $link = $_POST['link'];
                 $image = $this->request()->getFiles()['image']['name'];
-                if (empty($title) || empty($content)) {
-                    $_SESSION['error_message'] = 'Polia nadpís a obsah musia byť vyplnené';
+                $article->setTitle($title);
+                $article->setContent($content);
+                if (isset($_POST['tags'])) {
+                    $tags= $_POST['tags'];
                 } else {
-                    $article->setTitle($title);
-                    $article->setContent($content);
+                    $tags = [];
                 }
                 if ($image != "") {
                     $imageFile = $_FILES['image'];
                     $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
                     if (!in_array($imageFile['type'], $allowedTypes)) {
                         $_SESSION['error_message'] = 'Obrázok nie je spravnom formate';
+                        return $this->html(
+                            [
+                                'tagsName' => $tags,
+                                'article' => $article,
+                                'tags' => Tag::getAll(),
+                            ],'edit'
+                        );
                     }
                 }
                 if ($link !== "" && !filter_var($link, FILTER_VALIDATE_URL)) {
                     $_SESSION['error_message'] = 'Neplatný link';
                 } else {
                     $article->setLink($link);
-                }
-                if (isset($_POST['tags'])) {
-                    $tags= $_POST['tags'];
-                } else {
-                    $tags = [];
                 }
                 if (isset($_SESSION['error_message'])) {
                     return $this->html(
@@ -168,19 +171,41 @@ class ArticleController extends AControllerBase
         $title = trim($_POST['title']);
         $content = trim($_POST['content']);
         $image = $this->request()->getFiles()['image']['name'];
-        $errors = [];
-        if (empty($title) || empty($content)) {
-            $errors[] = 'Polia nadpís a obsah musia byť vyplnené';
+        $link = trim($_POST['link']);
+        if ($title === "" || $content === "" ) {
+            $_SESSION['error_message'] = "Názov a obsah sú povinne";
+            return $this->html(
+                [
+                    'article' => $article,
+                    'tags' => Tag::getAll(),
+                ],'edit'
+            );
         }
-        if ($image != "") {
+        if ($image !== "") {
             $imageFile = $_FILES['image'];
             $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
             if (!in_array($imageFile['type'], $allowedTypes)) {
-                $errors[] = 'Obrázok nie je spravnom formate';
+                $_SESSION['error_message'] = 'Obrázok nie je spravnom formate';
+                return $this->html(
+                    [
+                        'article' => $article,
+                        'tags' => Tag::getAll(),
+                    ],'edit'
+                );
             }
         }
-        if (!empty($errors)) {
-            return $this->html(['errors' => $errors], 'error');
+        if ($link !== "" && !filter_var($link, FILTER_VALIDATE_URL)) {
+            $_SESSION['error_message'] = 'Neplatný link';
+        } else {
+            $article->setLink($link);
+        }
+        if (isset($_SESSION['error_message'])) {
+            return $this->html(
+                [
+                    'article' => $article,
+                    'tags' => Tag::getAll(),
+                ],'edit'
+            );
         }
         if ($image != "") {
             if ($oldFIlneName != "") {
@@ -219,7 +244,7 @@ class ArticleController extends AControllerBase
                 $tagToAdd->save();
             }
         }
-        return new RedirectResponse($this->url('forum.index'));
+        return $this->redirect($this->url('forum.index'));
     }
 
 }

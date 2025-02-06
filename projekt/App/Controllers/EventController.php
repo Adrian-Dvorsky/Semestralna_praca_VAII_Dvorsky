@@ -24,10 +24,19 @@ class EventController extends AControllerBase
                 $eventDescription = $_POST['eventDescription'];
                 $event = new Event();
                 $event->setTitle($eventTitle);
-                $event->setDate($eventDate);
                 $event->setContent($eventDescription);
                 $user = User::getAll('userName =?', [$_SESSION['user']]);
                 $event->setAuthorId($user[0]->getId());
+                if ($eventTitle === "" && $eventDescription === "") {
+                    $_SESSION['error_message'] = 'Názov a obsah musia byť vyplnené';
+                    return $this->html();
+                }
+                if (strtotime($eventDate)) {
+                    $event->setDate($eventDate);
+                } else {
+                    $_SESSION['error_message'] = 'Zly format času';
+                    return $this->html();
+                }
                 $event->save();
                 $response = [
                     'success' => true,
@@ -47,14 +56,14 @@ class EventController extends AControllerBase
     }
 
     public function delete(): Response {
-        if (isset($_SESSION['user'])) {
+        if ($this->app->getAuth()->isAdmin()) {
             $id = (int)$this->request()->getValue('id');
             $event = Event::getOne($id);
             $event->delete();
             echo json_encode(['success' => true]);
             exit();
         }
-        echo json_encode(['success' => false]);
+        echo json_encode(['success' => false, 'message' => 'Nemáte oprávnenie']);
         exit;
     }
 

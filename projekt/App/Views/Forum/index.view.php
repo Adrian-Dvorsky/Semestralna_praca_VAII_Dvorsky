@@ -4,6 +4,13 @@
 /** @var Array $data */
 
 ?>
+<?php if(isset($_SESSION['error_message'])): ?>
+    <div class="alert alert-danger">
+        <?= $_SESSION['error_message']; ?>
+    </div>
+    <?php unset($_SESSION['error_message']); ?>
+<?php endif; ?>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6 left-bar">
@@ -48,7 +55,6 @@
                     <?php endif; ?>
                 </div>
             <?php endforeach;?>
-
     </div>
     <div class="main-box col-md-6">
         <?php if (isset($_SESSION['user'])): ?>
@@ -57,28 +63,28 @@
                     <form id="eventForm" class="event-form">
                         <div>
                             <label style="font-weight: bold; font-size: 20px" for="eventTitle">Názov udalosti:</label>
-                            <input type="text" id="eventTitle" name="eventTitle" style="width: 100%" placeholder="Zadajte názov udalosti">
+                            <input type="text" id="eventTitle" required name="eventTitle" style="width: 100%" placeholder="Zadajte názov udalosti">
                         </div>
                         <div>
                             <label style="font-weight: bold; font-size: 20px" for="eventDate">Dátum udalosti:</label>
-                            <input type="text" id="eventDate" name="eventDate" placeholder="Vyberte dátum udalosti">
+                            <input type="text" id="eventDate" required name="eventDate" placeholder="Vyberte dátum udalosti">
                         </div>
                         <div>
                             <label style="font-weight: bold; font-size: 20px" for="eventDescription">Popis udalosti:</label>
-                            <input id="eventDescription" name="eventDescription" style="width: 100%" placeholder="Napíšte popis udalosti">
+                            <input id="eventDescription" required name="eventDescription" style="width: 100%" placeholder="Napíšte popis udalosti">
                         </div>
                         <button class="event-button" type="submit">Pridať udalosť</button>
                     </form>
 
                 </div>
-        <?php foreach($data['events'] as $event): ?>
-            <div class="event-card" id="event-<?= $event->getId() ?>">
-                <h3 class="event-title"><?= htmlspecialchars($event->getTitle()) ?></h3>
-                <p class="event-date">Dátum konania <?= htmlspecialchars($event->getDate()) ?></p>
-                <p class="event-content"><?= htmlspecialchars($event->getContent()) ?></p>
-                <button class="delete-event-btn" data-event-id="<?= $event->getId() ?>">Vymazať</button>
-            </div>
-        <?php endforeach; ?>
+            <?php foreach($data['events'] as $event): ?>
+                <div class="event-card" id="event-<?= $event['id'] ?>">
+                    <h3 class="event-title"><?= htmlspecialchars($event['title']) ?></h3>
+                    <p class="event-date">Dátum konania <?= htmlspecialchars($event['date']) ?></p>
+                    <p class="event-content"><?= htmlspecialchars($event['content']) ?></p>
+                    <button class="delete-event-btn" data-event-id="<?= $event['id'] ?>">Vymazať</button>
+                </div>
+            <?php endforeach; ?>
         <div class="events-container">
 
         </div>
@@ -155,7 +161,7 @@
                         `;
                             document.querySelector(".events-container").appendChild(eventCard);
                         } else {
-                            alert("Chyba pri odosielaní údajov.");
+                            alert(data.message);
                         }
                     })
                     .catch(error => {
@@ -205,6 +211,20 @@
                     formContainer.style.display = formContainer.style.display === "none" ? "block" : "none";
                 }
             });
+        }
+    });
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let alertBox = document.querySelector(".alert-danger");
+        if (alertBox) {
+            setTimeout(function () {
+                alertBox.style.transition = "opacity 0.5s ease-out";
+                alertBox.style.opacity = "0";
+                setTimeout(() => alertBox.remove(), 500);
+            }, 3000);
         }
     });
 </script>
