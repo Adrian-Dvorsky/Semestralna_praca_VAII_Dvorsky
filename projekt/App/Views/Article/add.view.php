@@ -43,7 +43,6 @@
     function validateForm() {
         let title = document.getElementById('titleInput').value;
         let content = tinymce.get('inputContent').getContent();
-        let image = document.getElementById('formFile').files[0];
         let link = document.getElementById('inputLinks').value;
         let urlRegex = /^(https?:\/\/)?([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})(:[0-9]+)?(\/[^\s]*)?$/;
 
@@ -55,14 +54,6 @@
         if (content.trim() === "") {
             alert('Obsah je povinný.');
             return false;
-        }
-
-        if (image) {
-            let allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
-            if (!allowedTypes.includes(image.type)) {
-                alert('Obrázok musí byť vo formáte JPG, PNG alebo GIF.');
-                return false;
-            }
         }
 
         if (link.trim() !== "") {

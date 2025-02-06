@@ -18,11 +18,18 @@ class ArticleController extends AControllerBase
      */
     public function index(): Response
     {
+        if (!isset($_SESSION['user'])) {
+            return $this->redirect($this->url("home.index"));
+        }
         return $this->html();
     }
 
     public function add(): Response
     {
+        if (!$this->app->getAuth()->isLogged()) {
+            $_SESSION['error_message'] = "Musíš byť najskôr prihláseny";
+            return new RedirectResponse($this->url('home.index.'));
+        }
         return $this->html(
             [
                 'tags' =>  Tag::getAll()
@@ -50,6 +57,9 @@ class ArticleController extends AControllerBase
                 $image = $this->request()->getFiles()['image']['name'];
                 if (empty($title) || empty($content)) {
                     $_SESSION['error_message'] = 'Polia nadpís a obsah musia byť vyplnené';
+                } else {
+                    $article->setTitle($title);
+                    $article->setContent($content);
                 }
                 if ($image != "") {
                     $imageFile = $_FILES['image'];
@@ -58,8 +68,24 @@ class ArticleController extends AControllerBase
                         $_SESSION['error_message'] = 'Obrázok nie je spravnom formate';
                     }
                 }
-                if (!empty($errors)) {
-                    return $this->html(['errors' => $errors]);
+                if ($link !== "" && !filter_var($link, FILTER_VALIDATE_URL)) {
+                    $_SESSION['error_message'] = 'Neplatný link';
+                } else {
+                    $article->setLink($link);
+                }
+                if (isset($_POST['tags'])) {
+                    $tags= $_POST['tags'];
+                } else {
+                    $tags = [];
+                }
+                if (isset($_SESSION['error_message'])) {
+                    return $this->html(
+                        [
+                            'tagsName' => $tags,
+                            'article' => $article,
+                            'tags' => Tag::getAll(),
+                        ],'edit'
+                    );
                 }
                 if ($image != "") {
                     $image = FileStorage::saveFile($this->request()->getFiles()['image']);
@@ -70,7 +96,6 @@ class ArticleController extends AControllerBase
                 $article->setImage($image);
                 $article->setLink($link);
                 $article->save();
-                $tags = $_POST['tags'];
                 if ($tags != null) {
                     for ($i = 0; $i < count($tags); $i++) {
                         $artTag = new ArticleTag();
@@ -81,11 +106,15 @@ class ArticleController extends AControllerBase
                 }
             }
         }
-        return new RedirectResponse($this->url('home.index'));
+        return new RedirectResponse($this->url('forum.index'));
     }
 
     public function edit(): Response
     {
+        if (!$this->app->getAuth()->isLogged()) {
+            $_SESSION['error_message'] = "Musíš byť najskôr prihláseny";
+            return $this->redirect($this->url("home.index"));
+        }
         $id = (int)$this->request()->getValue('id');
         $article = Article::getOne($id);
         return $this->html(
@@ -97,9 +126,16 @@ class ArticleController extends AControllerBase
     }
     public function delete(): Response
     {
+        if (!$this->app->getAuth()->isLogged()) {
+            $_SESSION['error_message'] = "Musíš byť najskôr prihláseny";
+            return new RedirectResponse($this->url('home.index.'));
+        }
         $id = (int)$this->request()->getValue('id');
         $article = Article::getOne($id);
-
+        if ($this->app->getAuth()->getLoggedUserName() !== $article->getAuthor()) {
+            $_SESSION['error_message'] = "Nemáš právo mazať";
+            return $this->redirect($this->url("home.index"));
+        }
         if (is_null($article)) {
             throw new HTTPException(404);
         } else {
@@ -113,14 +149,21 @@ class ArticleController extends AControllerBase
 
     public function saveEdit() : Response
     {
+        if (!$this->app->getAuth()->isLogged()) {
+            $_SESSION['error_message'] = "Musíš byť najskôr prihláseny";
+            return new RedirectResponse($this->url('home.index.'));
+        }
         $id = (int)$this->request()->getValue('id');
         $oldFIlneName = "";
-
         if ($id > 0) {
             $article = Article::getOne($id);
             if ($article->getImage() !== null || $article->getImage() !== "") {
                 $oldFIlneName = $article->getImage();
             }
+        } else {
+            $article = new Article();
+            $author = $this->app->getAuth()->getLoggedUserName();
+            $article->setAuthor($author);
         }
         $title = trim($_POST['title']);
         $content = trim($_POST['content']);
@@ -149,10 +192,14 @@ class ArticleController extends AControllerBase
         $article->setTitle(htmlspecialchars($title, ENT_QUOTES, 'UTF-8'));
         $article->setContent(htmlspecialchars($content, ENT_QUOTES, 'UTF-8'));
         $article->setLink(htmlspecialchars($_POST['link'], ENT_QUOTES, 'UTF-8'));
-        $tags = $_POST['tags'];
+        if (isset($_POST['tags'])) {
+            $tags= $_POST['tags'];
+        } else {
+            $tags = [];
+        }
         $currentTags = ArticleTag::getAll('idArticle = ?', [$article->getId()]);
         $tagsCurrentId = array_map(fn($tag) => $tag->getIdTag(), $currentTags);
-
+        $article->save();
         foreach ($currentTags as $currentTag) {
             if (!in_array($currentTag->getIdTag(), $tags)) {
                 $tagToDelete = $currentTag;
@@ -163,13 +210,16 @@ class ArticleController extends AControllerBase
         foreach ($tags as $tagId) {
             if (!in_array($tagId, $tagsCurrentId)) {
                 $tagToAdd = new ArticleTag();
-                $tagToAdd->setIdArticle($article->getId());
-                $tagToAdd->setIdTag($tagId);
+                if ($article->getId() === null) {
+                    $tagToAdd->setIdArticle($_SESSION['userId']);
+                } else {
+                    $tagToAdd->setIdArticle($article->getId());
+                }
+                    $tagToAdd->setIdTag($tagId);
                 $tagToAdd->save();
             }
         }
-        $article->save();
-        return new RedirectResponse($this->url('home.index'));
+        return new RedirectResponse($this->url('forum.index'));
     }
 
 }

@@ -5,6 +5,12 @@
 /** @var App\Core\IAuthenticator $auth */
 /** @var \App\Core\LinkGenerator $link */
 ?>
+<?php if(isset($_SESSION['error_message'])): ?>
+    <div class="alert alert-danger">
+        <?= $_SESSION['error_message']; ?>
+    </div>
+    <?php unset($_SESSION['error_message']); ?>
+<?php endif; ?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-8 text-background">

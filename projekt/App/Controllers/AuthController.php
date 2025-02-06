@@ -16,7 +16,7 @@ class AuthController extends AControllerBase
     public function login(): Response
     {
         if (isset($_SESSION['user'])) {
-            //$this->app->getAuth()->logout();
+            $_SESSION['error_message'] = 'Používateľ je prihlásený';
             return $this->redirect($this->url("home.index"));
         }
         $data = $this->app->getRequest()->getPost();

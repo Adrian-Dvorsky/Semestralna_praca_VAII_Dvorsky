@@ -5,7 +5,12 @@
 /** @var Array $data */
 
 ?>
-
+<?php if(isset($_SESSION['error_message'])): ?>
+    <div class="alert alert-danger">
+        <?= $_SESSION['error_message']; ?>
+    </div>
+    <?php unset($_SESSION['error_message']); ?>
+<?php endif; ?>
 <form method="post" action="<?= $link->url('article.saveEdit') ?>" enctype="multipart/form-data" onsubmit="return validateForm()">
     <div class="container">
         <input type="hidden" name="id" value="<?=$data['article']?->getId()?>'">
@@ -34,10 +39,18 @@
         <div class="mb-3">
             <label for="inputTags" class="form-label input-title">Tagy </label>
             <?php
-                $selectedTags = \App\Models\ArticleTag::getAll('idArticle = ?', [$data['article']->getId()]);
-                $selectedId = [];
-                foreach ($selectedTags as $tag) {
-                    $selectedId[] = $tag->getIdTag();
+                if (isset($data['tagsName']) && !empty($data['tagsName'])) {
+                    $selectedTags = $data['tagsName'];
+                    $selectedId = [];
+                    for ($i = 0; $i < count($selectedTags); $i++) {
+                        $selectedId[] = $selectedTags[$i];
+                    }
+                } else {
+                    $selectedTags = \App\Models\ArticleTag::getAll('idArticle = ?', [$data['article']->getId()]);
+                    $selectedId = [];
+                    foreach ($selectedTags as $tag) {
+                        $selectedId[] = $tag->getIdTag();
+                    }
                 }
             ?>
             <?php foreach ($data['tags'] as $tag): ?>
@@ -79,7 +92,6 @@
     function validateForm() {
         let title = document.getElementById('titleInput').value;
         let content = tinymce.get('inputContent').getContent();
-        let image = document.getElementById('formFile').files[0];
         let link = document.getElementById('inputLinks').value;
         let urlRegex = /^(https?:\/\/)?([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})(:[0-9]+)?(\/[^\s]*)?$/;
 
@@ -93,13 +105,6 @@
             return false;
         }
 
-        if (image) {
-            let allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
-            if (!allowedTypes.includes(image.type)) {
-                alert('Obrázok musí byť vo formáte JPG, PNG alebo GIF.');
-                return false;
-            }
-        }
 
         if (link.trim() !== "") {
             if (!urlRegex.test(link)) {

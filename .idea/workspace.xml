@@ -5,14 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f75be4e0-88b6-4927-b901-3aeb6d3d1c30" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/projekt/App/Views/Event/add.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Semestralna_praca_VAII_Dvorsky.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Semestralna_praca_VAII_Dvorsky.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Auth/MyAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Auth/MyAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Controllers/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Controllers/ArticleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Controllers/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Controllers/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Controllers/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Models/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Models/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Article/add.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Article/add.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/App/Views/Article/edit.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Article/edit.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/App/Views/Forum/index.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Forum/index.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/App/Views/root.layout.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/root.layout.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/App/Views/Home/index.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/App/Views/Home/index.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/public/uploads/28213685957861-tennisimage1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/public/uploads/5885014514408-file.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +124,8 @@
       <workItem from="1736639290467" duration="2502000" />
       <workItem from="1738659662389" duration="40840000" />
       <workItem from="1738708370658" duration="607000" />
-      <workItem from="1738747453706" duration="8026000" />
+      <workItem from="1738747453706" duration="47077000" />
+      <workItem from="1738799992072" duration="178000" />
     </task>
     <servers />
   </component>

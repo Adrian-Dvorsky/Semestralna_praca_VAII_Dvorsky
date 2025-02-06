@@ -17,7 +17,10 @@ class RegistrationController extends AControllerBase
     }
     public function reg(): Response
     {
-        unset($_SESSION['error_message']);
+        if (isset($_SESSION['user'])) {
+            $_SESSION['error_message'] = 'Používateľ je prihlásený';
+            return $this->redirect($this->url("home.index"));
+        }
         $data = $this->app->getRequest()->getPost();
         if (isset($data['submit'])) {
             $username = $_POST["username"];

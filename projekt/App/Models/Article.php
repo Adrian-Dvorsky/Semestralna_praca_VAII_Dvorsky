@@ -10,8 +10,8 @@ class Article extends Model
     protected string $author;
     protected string $title;
     protected string $content;
-    protected ?string $image;
-    protected ?string $link;
+    protected ?string $image = "";
+    protected ?string $link = "";
 
     public function getId(): ?int
     {
